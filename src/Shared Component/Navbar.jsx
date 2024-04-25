@@ -62,7 +62,7 @@ const navi = <>
         <NavLink to={'/'}><li><a>All Tourists Spot</a></li></NavLink>
        {
         user&& <>
-         <NavLink to={'/'}><li><a>Add Tourists Spot</a></li></NavLink>
+         <NavLink to={'/addSpot'}><li><a>Add Tourists Spot</a></li></NavLink>
         <NavLink to={'/'}><li><a>My List </a></li></NavLink>
         </>
        }
@@ -91,7 +91,7 @@ const navi = <>
                         <Link to={'/'}>  <button className="flex items-center pl-0 font-bold  text-xl md:text-2xl lg:text-2xl" >Trek<span className="">Trove</span></button> </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 font-semibold">
+                        <ul className="menu menu-horizontal px-1 font-semibold font-mont">
                             {navi}
 
                         </ul>

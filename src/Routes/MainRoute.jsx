@@ -4,6 +4,8 @@ import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Authentication/Register";
 import Login from "../Pages/Authentication/Login";
+import AddTouristSpot from "../Pages/AddTouristSpot";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,11 @@ const router = createBrowserRouter([
         {
           path: "/login",
           element: <Login></Login>,
+        },
+       
+        {
+          path: "/addSpot",
+          element: <PrivetRoute><AddTouristSpot></AddTouristSpot></PrivetRoute>,
         },
        
         
