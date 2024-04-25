@@ -11,16 +11,17 @@ import {
 
 // import AuthProvider from './Auth Provider/AuthProvider';
 import router from './Routes/MainRoute';
+import AuthProvider from './Auth Provider/AuthProbider';
 // import AuthProvider from './Auth Provider/AuthProbider';
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <AuthProvider> */}
+    <AuthProvider>
 
         <RouterProvider router={router} />
    
-    {/* </AuthProvider> */}
+    </AuthProvider>
   </React.StrictMode>,
 )

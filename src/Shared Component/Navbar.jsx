@@ -3,12 +3,26 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Auth Provider/AuthProbider";
 
 const Navbar = () => {
 
+    const {user,userLogOut}=useContext(AuthContext)
+    
+  
+    const [loadedUsers,setLoadedUsers]=useState([])
+    useEffect(()=>{
+
+        fetch('http://localhost:3000/users')
+        .then(res=>res.json())
+        .then(data=>setLoadedUsers(data))
+
+    },[])
+
     const navi = <>
         <NavLink to={'/'}><li><a>Home</a></li></NavLink>
+        <NavLink ><li><a>{loadedUsers.length}</a></li></NavLink>
     </>
 
     
@@ -32,6 +46,16 @@ useEffect(() => {
     window.removeEventListener('scroll', handleScroll);
   };
 }, [visible]);
+
+
+
+const logoutHandel=()=>{
+
+    userLogOut()
+    .then()
+    .catch()
+
+}
 
     return (
 
@@ -68,9 +92,9 @@ useEffect(() => {
                         <div className="flex items-center">
                             <div className="dropdown dropdown-end "  >
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full " data-tooltip-id="my-tooltip" data-tooltip-content="user Name">
+                                    <div className="w-10 rounded-full " data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}>
                                         {
-                                            <FaRegCircleUser className="w-full h-full text-gray-300"></FaRegCircleUser>
+                                           user?<img src={user?.photoURL} alt="" /> :<FaRegCircleUser className="w-full h-full text-gray-300"></FaRegCircleUser>
                                         }
                                     </div>
                                 </div>
@@ -78,11 +102,11 @@ useEffect(() => {
                                     <Link to={"/userProfile"}>    <li>
                                         <a className="justify-between">
                                             Profile
-                                            <span className="badge font-semibold  ">user name</span>
+                                            <span className="badge font-semibold  ">{user?.displayName}</span>
                                         </a>
                                     </li></Link>
 
-                                    <li  ><button className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">LogOut</button></li>
+                                    <li  ><button onClick={logoutHandel} className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">LogOut</button></li>
                                 </ul>
 
                             </div>

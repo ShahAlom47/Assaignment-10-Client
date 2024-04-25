@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaRegCircleUser } from "react-icons/fa6";
 import { ImGoogle } from "react-icons/im";
 import { IoLogoGithub } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.config";
-import {  createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {  updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../../Auth Provider/AuthProbider";
 
 const Register = () => {
     const [errorMsg, setErrorMsg] = useState(null)
@@ -15,8 +16,10 @@ const Register = () => {
     const [showPass, setShowPass] = useState(true)
     const navigate = useNavigate();
 
+    const { userRegister, githubLogin, googleLogin } = useContext(AuthContext)
+
     const handelRegister = (e) => {
-  
+
         // reset msg 
         setErrorMsg('')
         setSuccessMsg('')
@@ -46,36 +49,119 @@ const Register = () => {
         }
 
 
-        createUserWithEmailAndPassword(auth, email, password)
+        // createUserWithEmailAndPassword(auth, email, password)
+        userRegister(email, password)
             .then(() => {
-               
-             
+
+
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
                 }).then(() => {
                     alert('success')
-                    
+
                 }).catch((error) => {
                     setErrorMsg(error.message)
                 });
-                toast.success('User created successfully ')
-                setSuccessMsg('User created successfully')
-                // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+
+
+
+                fetch('http://localhost:3000/user', {
+
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(FormDatas),
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+
+                            toast.success('User created successfully ')
+                            setSuccessMsg('User created successfully')
+                            // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+                        }
+                    })
+
+
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 console.log(errorMessage);
                 setErrorMsg(errorMessage)
                 toast.error(errorMessage)
-                
+
             });
 
     }
 
     const googleLoginHandel = () => {
+        googleLogin()
+            .then((data) => {
+                const name= data.user?.displayName
+                const email=data.user?.email
+                const photo=data.user?.photoURL
+                const FormDatas = {name,email,photo, }
+
+                fetch('http://localhost:3000/user', {
+
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(FormDatas),
+            })
+
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+
+                        toast.success('Login Successfully ')
+                        setSuccessMsg('Login Successfully')
+                        // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+                    }
+                })
+ 
+            })
+            .catch((error) => {
+                setErrorMsg(error.message)
+                toast.error(error.message)
+            });
 
     }
     const githubLoginHandel = () => {
+        githubLogin()
+        .then((data) => {
+            const name= data.user?.displayName
+            const email=data.user?.email
+            const photo=data.user?.photoURL
+            const FormDatas = {name,email,photo, }
+
+            fetch('http://localhost:3000/user', {
+
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(FormDatas),
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+
+                    toast.success('Login Successfully ')
+                    setSuccessMsg('Login Successfully')
+                    // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+                }
+            })
+
+        })
+        .catch((error) => {
+            setErrorMsg(error.message)
+                toast.error(error.message)
+        });
 
 
     }
@@ -132,7 +218,7 @@ const Register = () => {
                     <button onClick={googleLoginHandel} className="btn btn-outline px-2 rounded-full"> <ImGoogle className=" text-red-500  w-6 h-6" /> Continue With Google </button>
                     <button onClick={githubLoginHandel} className="btn btn-outline px-2 rounded-full"> <IoLogoGithub className="  w-8 h-8" /> Continue With Google </button>
                 </div>
-             
+
             </div>
             <ToastContainer />
         </div>
