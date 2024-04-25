@@ -10,7 +10,6 @@ const Navbar = () => {
 
     const {user,userLogOut}=useContext(AuthContext)
     
-  
     const [loadedUsers,setLoadedUsers]=useState([])
     useEffect(()=>{
 
@@ -20,10 +19,9 @@ const Navbar = () => {
 
     },[])
 
-    const navi = <>
-        <NavLink to={'/'}><li><a>Home</a></li></NavLink>
-        <NavLink ><li><a>{loadedUsers.length}</a></li></NavLink>
-    </>
+
+
+    
 
     
 const [visible, setVisible] = useState(true);
@@ -57,6 +55,20 @@ const logoutHandel=()=>{
 
 }
 
+
+
+const navi = <>
+        <NavLink to={'/'}><li><a>Home</a></li></NavLink>
+        <NavLink to={'/'}><li><a>All Tourists Spot</a></li></NavLink>
+       {
+        user&& <>
+         <NavLink to={'/'}><li><a>Add Tourists Spot</a></li></NavLink>
+        <NavLink to={'/'}><li><a>My List </a></li></NavLink>
+        </>
+       }
+        <NavLink ><li><a>{loadedUsers.length}</a></li></NavLink>
+    </>
+
     return (
 
 
@@ -89,7 +101,7 @@ const logoutHandel=()=>{
 
 
 
-                        <div className="flex items-center">
+                       {user? <div className="flex items-center">
                             <div className="dropdown dropdown-end "  >
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full " data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}>
@@ -99,23 +111,26 @@ const logoutHandel=()=>{
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                    <Link to={"/userProfile"}>    <li>
-                                        <a className="justify-between">
-                                            Profile
-                                            <span className="badge font-semibold  ">{user?.displayName}</span>
-                                        </a>
-                                    </li></Link>
+                                      <li>
+                                        <p className="justify-center text-xl font-medium">
+                                            {user?.displayName}
+                                        </p>
+                                    </li>
 
                                     <li  ><button onClick={logoutHandel} className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">LogOut</button></li>
                                 </ul>
 
                             </div>
-                            {/* <Link ><button className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">LogOut</button></Link> */}
+                     
 
-                        </div>  <>
+                        </div>
+                        
+                        :<>
                             <Link to={'/login'}><button className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">Login</button></Link>
                             <Link to={'/register'}><button className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">Register</button></Link>
                         </>
+                            
+                        }  
 
 
 

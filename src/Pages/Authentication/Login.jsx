@@ -1,12 +1,12 @@
 
 
 import { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaRegCircleUser } from "react-icons/fa6";
+import { FaEye, FaEyeSlash, } from "react-icons/fa6";
 import { ImGoogle } from "react-icons/im";
 import { IoLogoGithub } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../../../firebase.config";
-import {  updateProfile } from "firebase/auth";
+
+
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../Auth Provider/AuthProbider";
