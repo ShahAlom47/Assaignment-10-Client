@@ -14,7 +14,7 @@ const Navbar = () => {
     const [loadedUsers,setLoadedUsers]=useState([])
     useEffect(()=>{
 
-        fetch('http://localhost:3000/users')
+        fetch('http://localhost:3000/user')
         .then(res=>res.json())
         .then(data=>setLoadedUsers(data))
 
