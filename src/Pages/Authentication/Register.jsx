@@ -3,6 +3,10 @@ import { FaEye, FaEyeSlash, FaRegCircleUser } from "react-icons/fa6";
 import { ImGoogle } from "react-icons/im";
 import { IoLogoGithub } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.config";
+import {  createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [errorMsg, setErrorMsg] = useState(null)
@@ -12,6 +16,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handelRegister = (e) => {
+  
         // reset msg 
         setErrorMsg('')
         setSuccessMsg('')
@@ -40,6 +45,30 @@ const Register = () => {
             return
         }
 
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(() => {
+               
+             
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: photo
+                }).then(() => {
+                    alert('success')
+                    
+                }).catch((error) => {
+                    setErrorMsg(error.message)
+                });
+                toast.success('User created successfully ')
+                setSuccessMsg('User created successfully')
+                // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                setErrorMsg(errorMessage)
+                toast.error(errorMessage)
+                
+            });
 
     }
 
@@ -103,8 +132,9 @@ const Register = () => {
                     <button onClick={googleLoginHandel} className="btn btn-outline px-2 rounded-full"> <ImGoogle className=" text-red-500  w-6 h-6" /> Continue With Google </button>
                     <button onClick={githubLoginHandel} className="btn btn-outline px-2 rounded-full"> <IoLogoGithub className="  w-8 h-8" /> Continue With Google </button>
                 </div>
-
+             
             </div>
+            <ToastContainer />
         </div>
     );
 };
