@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      daisyui: {
+        themes: ["light", "dark", "dracula","dim",],
+      },
       fontFamily: {
        'mont': ["Montserrat", 'sans-serif']
       }

@@ -57,7 +57,7 @@ const Register = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
                 }).then(() => {
-                    alert('success')
+                  
 
                 }).catch((error) => {
                     setErrorMsg(error.message)

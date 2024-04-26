@@ -23,7 +23,10 @@ const TouristsSpots = () => {
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >Explore Tourists Spots</h1>
             </div>
 
-            <div className="p-4 lg:p-11 pb-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+         {
+            spotDatas.length===0 ? <div className=" flex justify-center p-48"> <span className="loading loading-spinner  w-40 h-40 "></span> </div>
+            :<>
+               <div className="p-4 lg:p-11 pb-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
                 {
                     spotDatas?.slice(0, 6).map((data) => <div key={data._id} className="card card-compact bg-base-100 shadow-xl  grid grid-rows-6">
                         <div className="row-span-4 flex justify-center items-end">
@@ -61,6 +64,8 @@ const TouristsSpots = () => {
                     See All Spot</button></Link>
                 }
             </div>
+            </>
+         }
         </div>
     );
 };
