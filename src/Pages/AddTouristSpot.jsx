@@ -1,3 +1,4 @@
+import { ToastContainer, toast } from "react-toastify";
 
 
 const AddTouristSpot = () => {
@@ -28,6 +29,28 @@ const AddTouristSpot = () => {
             description,
         }
 
+
+        
+        fetch('http://localhost:3000/spot', {
+
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(FormDatas),
+    })
+
+        .then(res => res.json())
+        .then(data => {
+            if (data.insertedId) {
+
+                toast.success('User created successfully ')
+                data.reset()
+              
+                // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+            }
+        })
+
     }
 
     return (
@@ -40,15 +63,15 @@ const AddTouristSpot = () => {
                 <form onSubmit={handelAddSpot}>
 
                     <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
-                        <input type="text" placeholder="Spot Nmae" name="spot_name" className="input input-bordered w-full " />
-                        <input type="text" placeholder="Country Name" name="country_name" className="input input-bordered w-full " />
+                        <input type="text" placeholder="Spot Nmae" name="spot_name" className="input input-bordered w-full "  required/>
+                        <input type="text" placeholder="Country Name" name="country_name" className="input input-bordered w-full "  required />
                     </div>
                     <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
-                        <input type="text" placeholder="ImageURL" name="imageURL" className="input input-bordered w-full " />
-                        <input type="text" placeholder="Location" name="location" className="input input-bordered w-full " />
+                        <input type="text" placeholder="ImageURL" name="imageURL" className="input input-bordered w-full " required />
+                        <input type="text" placeholder="Location" name="location" className="input input-bordered w-full " required />
                     </div>
                     <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
-                        <input type="text" placeholder="Average Cost" name="average_cost" className="input input-bordered w-full " />
+                        <input type="text" placeholder="Average Cost" name="average_cost" className="input input-bordered w-full " required />
                         <input type="text" placeholder="Seasonality- summer, winter" name="seasonality" className="input input-bordered w-full " />
                     </div>
                     <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
@@ -63,7 +86,7 @@ const AddTouristSpot = () => {
 
 
             </div>
-
+            <ToastContainer />
         </div>
     );
 };
