@@ -63,10 +63,10 @@ const navi = <>
        {
         user&& <>
          <NavLink to={'/addSpot'}><li><a>Add Tourists Spot</a></li></NavLink>
-        <NavLink to={'/'}><li><a>My List </a></li></NavLink>
+        <NavLink to={'/myList'}><li><a>My List </a></li></NavLink>
         </>
        }
-        <NavLink ><li><a>{loadedUsers.length}</a></li></NavLink>
+        
     </>
 
     return (

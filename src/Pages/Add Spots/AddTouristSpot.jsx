@@ -1,7 +1,12 @@
 import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../../Auth Provider/AuthProbider";
+import { useContext } from "react";
 
 
 const AddTouristSpot = () => {
+
+    const { user } = useContext(AuthContext)
+    const userEmail = { email: user.email }
 
     const handelAddSpot = (e) => {
 
