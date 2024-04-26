@@ -6,7 +6,9 @@ import { useContext } from "react";
 const AddTouristSpot = () => {
 
     const { user } = useContext(AuthContext)
-    const userEmail = { email: user.email }
+
+    const userName =  user.displayName 
+    const userEmail =  user.email 
 
     const handelAddSpot = (e) => {
 
@@ -72,8 +74,8 @@ const AddTouristSpot = () => {
                 <form onSubmit={handelAddSpot}>
 
                     <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
-                        <input type="text" placeholder="Name" name="name" className="input input-bordered w-full "  required/>
-                        <input type="email" placeholder=" Email" name="email" className="input input-bordered w-full "  required />
+                        <input type="text" placeholder="Name" name="name" className="input input-bordered w-full " defaultValue={userName}  required/>
+                        <input type="email" placeholder=" Email" name="email" className="input input-bordered w-full " defaultValue={userEmail} required />
                     </div>
                     <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
                         <input type="text" placeholder="Spot Nmae" name="spot_name" className="input input-bordered w-full "  required/>

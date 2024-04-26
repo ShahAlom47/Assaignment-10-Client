@@ -6,6 +6,7 @@ Currently, two official plugins are available:
 
 React-tooltip use for profile icon
 react-simple-typewriter use banner text
+npm i react-modal  for edit my list
  
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh

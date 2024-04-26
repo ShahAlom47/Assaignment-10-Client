@@ -81,7 +81,7 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='relative'>
-                        <img className='-[500px] w-full rounded-lg' src="https://i.ibb.co/kggpstP/Webp-net-resizeimage-1.jpg" alt="" />
+                        <img className='h-[600px] w-full rounded-lg' src="https://i.ibb.co/kggpstP/Webp-net-resizeimage-1.jpg" alt="" />
                         <div className="overlay bg-black bg-opacity-40 absolute bottom-1 md:bottom-0 lg:bottom-0 left-0 z-40 lg:p-0 p-0 w-full h-full rounded-md ">
                             <div className="animate__animated animate__fadeInRight text-center  flex flex-col items-center h-full w-full absolute top-1/4 ">
                                 <p className=" uppercase  font-mont text-white"> Come to experience in Turio</p>
