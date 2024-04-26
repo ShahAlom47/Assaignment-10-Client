@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Auth Provider/AuthProbider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
 
 
 
@@ -12,9 +13,10 @@ const MyList = () => {
     const [myData, setMyData] = useState([])
     const [updateData, setUpdatedData] = useState(myData)
     const [acceptedData,setAcceptedData]=useState([])
+    const navigate= useNavigate()
 
 
-    console.log(user.email);
+
 
     useEffect(() => {
 
@@ -65,7 +67,7 @@ const MyList = () => {
 
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                      
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -120,6 +122,31 @@ const MyList = () => {
             description,
         }
 
+        fetch(`http://localhost:3000/spot/${acceptedData._id}`, {
+
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(FormDatas)
+    })
+
+        .then(res => res.json())
+        .then(data=>{
+            if(data.modifiedCount>0){
+                setUpdatedData('')
+               toast.success('Update successfully')
+ 
+            setTimeout(() => {
+                navigate(`/details/${acceptedData._id}`)
+            }, 1500);
+            }
+            else{
+                toast.info('Not updated')
+
+            }
+        })
+
 
 
 
@@ -140,8 +167,9 @@ const MyList = () => {
                                 <img className=" sm:rounded-xl" src={data.imageURL} alt="Movie" />
                             </figure>
                             <div className="card-body pb-2">
-                                <h2 className="card-title">New movie is released!</h2>
-                                <p>Click the button to watch on Jetflix app.</p>
+                                <h2 className="card-title">{data.spot_name}</h2>
+                                <p className="text-gray-600 font-medium ">{data.country_name}</p>
+                                <p className=" text-gray-600 font-medium"> Average Cost <span className=" text-lg font-semibold "> {data.average_cost} $</span></p>
                                 <div className="card-actions justify-end">
 
                                     <Link to={`/details/${data._id}`}>   <button className="btn  btn-sm rounded-sm  bg-[#3fb232] border-none  my-5 text-white ">View Details</button></Link>
@@ -153,6 +181,7 @@ const MyList = () => {
                 }
 
             </div>
+            <ToastContainer />
 
             {/* Open the modal using document.getElementById('ID').showModal() method */}
 
@@ -184,7 +213,7 @@ const MyList = () => {
                                 <input type="text" placeholder="TotalVisitorsPerYear" name="totalVisitors" className="input input-bordered w-full " defaultValue={acceptedData.totalVisitors}/>
                             </div>
 
-                            <textarea name="description" placeholder="Sort Description" id="" cols="30" rows="10" className="input input-bordered h-20 w-full" defaultValue={acceptedData.description}></textarea>
+                            <textarea name="description" placeholder="Sort Description" id="" cols="30" rows="10" className="input input-bordered h-20 w-full" defaultValue={acceptedData.des}></textarea>
                             <input type="submit" value="Save" className="btn btn-s rounded-sm  bg-[#3fb232] border-none w-full my-5 text-white text-lg" />
 
                         </form>

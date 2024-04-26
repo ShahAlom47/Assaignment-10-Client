@@ -1,9 +1,10 @@
 import { CiLocationOn } from "react-icons/ci";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 
 const SpotDetails = () => {
     const data = useLoaderData();
+    const navigate=useNavigate()
 
     return (
         <div className="lg:w-8/12 md:w-8/12 w-10/12 m-auto">
@@ -28,12 +29,13 @@ const SpotDetails = () => {
                         <p className="font-medium text-gray-500">Seasonality : {data.seasonality}</p>
 
                         <p className="font-medium text-gray-500"> Total Visitors Per Year : {data.totalVisitors}</p>
-
+                        <p className=" font-medium text-gray-500"> Travel Time : {data.travel_time}</p>
 
                     </div>
                     <div className="card-actions justify-between items-end ">
-                        <p className=" font-medium text-gray-500"> Travel Time : {data.travel_time}</p>
-                        <p className="font-medium text-gray-500"> Average Cost : {data.average_cost}</p>
+                        
+                    <p className=" text-gray-600 font-medium"> Average Cost <span className=" text-lg font-semibold "> {data.average_cost} $</span></p>
+                    <Link ><button onClick={()=> navigate(-1)} className=" btn btn-sm  flex items-center "> &#8592; Back</button></Link>
                       
                     </div>
                 </div>
