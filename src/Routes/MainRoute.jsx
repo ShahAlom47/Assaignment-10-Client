@@ -35,6 +35,7 @@ const router = createBrowserRouter([
         {
           path: "/allSpot",
           element: <PrivetRoute><AllTouristSpots></AllTouristSpots></PrivetRoute>,
+          loader:()=> fetch('http://localhost:3000/spot')
         },
         {
           path: "/details/:id",
