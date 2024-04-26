@@ -7,6 +7,8 @@ const AddTouristSpot = () => {
 
         e.preventDefault();
         const data = new FormData(e.target);
+        const user_name = data.get('name')
+        const user_email = data.get('email')
         const spot_name = data.get('spot_name')
         const country_name = data.get('country_name')
         const imageURL = data.get('imageURL')
@@ -18,6 +20,8 @@ const AddTouristSpot = () => {
         const description = data.get('description')
 
         const FormDatas = {
+            user_name,
+            user_email,
             spot_name,
             country_name,
             imageURL,
@@ -44,7 +48,7 @@ const AddTouristSpot = () => {
         .then(data => {
             if (data.insertedId) {
 
-                toast.success('User created successfully ')
+                toast.success(' Successfully Added Tourist Spot ')
                 data.reset()
               
                 // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
@@ -62,6 +66,10 @@ const AddTouristSpot = () => {
 
                 <form onSubmit={handelAddSpot}>
 
+                    <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
+                        <input type="text" placeholder="Name" name="name" className="input input-bordered w-full "  required/>
+                        <input type="email" placeholder=" Email" name="email" className="input input-bordered w-full "  required />
+                    </div>
                     <div className=" flex gap-4 justify-center lg:flex-row md:flex-row flex-col  mb-3 ">
                         <input type="text" placeholder="Spot Nmae" name="spot_name" className="input input-bordered w-full "  required/>
                         <input type="text" placeholder="Country Name" name="country_name" className="input input-bordered w-full "  required />

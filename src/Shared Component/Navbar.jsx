@@ -59,7 +59,7 @@ const logoutHandel=()=>{
 
 const navi = <>
         <NavLink to={'/'}><li><a>Home</a></li></NavLink>
-        <NavLink to={'/'}><li><a>All Tourists Spot</a></li></NavLink>
+        <NavLink to={'/allSpot'}><li><a>All Tourists Spot</a></li></NavLink>
        {
         user&& <>
          <NavLink to={'/addSpot'}><li><a>Add Tourists Spot</a></li></NavLink>

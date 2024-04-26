@@ -8,6 +8,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Navbar from "../../Shared Component/Navbar";
 
 import 'animate.css';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
 
@@ -52,7 +53,7 @@ const Banner = () => {
 
                                 <p className='text-white w-6/12 '>Sed convallis sit amet leo quis feugiat. Nunc interdum mollis facilisis. feugi Donec id the urna aliquet, suscipit turpis ut Donec id urna aliquet, suscipit turpis ut, facilisis purus.Sed convallis sit amet leo quis .</p>
 
-                                <button className=" btn btn-success  rounded-sm ml-3 bg-[#389c2d] border-none text-gray-100 my-3  ">Explore Now</button>
+                               <Link to={'/allSpot'}> <button className=" btn btn-success  rounded-sm ml-3 bg-[#389c2d] border-none text-gray-100 my-3  ">Explore Now</button></Link>
                             </div>
 
                         </div>
@@ -71,7 +72,8 @@ const Banner = () => {
 
                                 <p className='text-white w-6/12 '>The Mekong Delta is a captivating region in Southeast Asia, where the mighty Mekong River gracefully flows, nourishing lush green landscapes and vibrant communities.</p>
 
-                                <button className=" btn btn-success  rounded-sm ml-3 bg-[#389c2d] border-none text-gray-100 my-3  ">Explore Now</button>
+                                <Link to={'/allSpot'}> <button className=" btn btn-success  rounded-sm ml-3 bg-[#389c2d] border-none text-gray-100 my-3  ">Explore Now</button></Link>
+
                             </div>
 
                         </div>
@@ -91,7 +93,8 @@ const Banner = () => {
                                 <p className='text-white w-6/12 '>
                                     Saint Martin's Island in Bangladesh is a pristine natural wonder, where the white sands meet the azure waters of the Bay of Bengal.</p>
 
-                                <button className=" btn btn-success  rounded-sm ml-3 bg-[#389c2d] border-none text-gray-100 my-3  ">Explore Now</button>
+                                    <Link to={'/allSpot'}> <button className=" btn btn-success  rounded-sm ml-3 bg-[#389c2d] border-none text-gray-100 my-3  ">Explore Now</button></Link>
+
                             </div>
 
                         </div>
