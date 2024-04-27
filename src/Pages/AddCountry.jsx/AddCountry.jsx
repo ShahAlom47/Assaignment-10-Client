@@ -22,7 +22,7 @@ const AddCountry = () => {
 
 
         
-        fetch('http://localhost:3000/country', {
+        fetch('https://assaignment-10-server-sage.vercel.app/country', {
 
         method: 'POST',
         headers: {

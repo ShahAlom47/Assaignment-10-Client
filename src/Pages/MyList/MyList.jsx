@@ -21,7 +21,7 @@ const MyList = () => {
     useEffect(() => {
 
 
-        fetch('http://localhost:3000/spot/myData', {
+        fetch('https://assaignment-10-server-sage.vercel.app/spot/myData', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userEmail)
@@ -56,7 +56,7 @@ const MyList = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/spot/${_id}`, {
+                fetch(`https://assaignment-10-server-sage.vercel.app/spot/${_id}`, {
 
                     method: 'DELETE',
                     headers: {
@@ -86,7 +86,7 @@ const MyList = () => {
 
     const handelEditSpot = (_id) => {
         document.getElementById('my_modal_5').showModal()
-        fetch(`http://localhost:3000/spot/${_id}`)
+        fetch(`https://assaignment-10-server-sage.vercel.app/spot/${_id}`)
         .then(res=>res.json())
         .then(data=>setAcceptedData(data))
     }
@@ -122,7 +122,7 @@ const MyList = () => {
             description,
         }
 
-        fetch(`http://localhost:3000/spot/${acceptedData._id}`, {
+        fetch(`https://assaignment-10-server-sage.vercel.app/spot/${acceptedData._id}`, {
 
         method: 'PATCH',
         headers: {
@@ -159,6 +159,9 @@ const MyList = () => {
             <div className="heading my-16">
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >My List</h1>
             </div>
+            {
+                myData.length===0?  <div className=" flex justify-center p-48"> <span className="loading loading-spinner  w-40 h-40 "></span> </div> :
+            
             <div>
                 {
                     myData.map((data) => <div key={data._id} className="lg:w-8/12 md:w-8/12 w-10/12 m-auto mb-4">
@@ -181,6 +184,7 @@ const MyList = () => {
                 }
 
             </div>
+}
             <ToastContainer />
 
             {/* Open the modal using document.getElementById('ID').showModal() method */}

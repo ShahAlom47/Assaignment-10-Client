@@ -11,7 +11,7 @@ const AllTouristSpots = () => {
 
     const handelHighToLow = () => {
         setLoading(true);
-        fetch('http://localhost:3000/spotLow')
+        fetch('https://assaignment-10-server-sage.vercel.app/spotLow')
             .then(res => res.json())
             .then(data => {
 
@@ -23,7 +23,7 @@ const AllTouristSpots = () => {
 
     const handelLowToHight = () => {
         setLoading(true);
-        fetch('http://localhost:3000/spotUp')
+        fetch('https://assaignment-10-server-sage.vercel.app/spotUp')
             .then(res => res.json())
             .then(data => {
 

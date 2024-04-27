@@ -43,7 +43,7 @@ const AddTouristSpot = () => {
 
 
         
-        fetch('http://localhost:3000/spot', {
+        fetch('https://assaignment-10-server-sage.vercel.app/spot', {
 
         method: 'POST',
         headers: {

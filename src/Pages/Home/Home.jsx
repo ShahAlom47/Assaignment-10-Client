@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import CountrySection from "./CountrySection";
+import GetOffer from "./GetOffer";
 import TouristsSpots from "./TouristsSpots";
 
 
@@ -10,6 +11,7 @@ const Home = () => {
             <TouristsSpots></TouristsSpots>
             
             <CountrySection></CountrySection>
+            <GetOffer></GetOffer>
           
         </div>
     );

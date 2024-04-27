@@ -37,8 +37,8 @@ const router = createBrowserRouter([
         },
         {
           path: "/allSpot",
-          element: <PrivetRoute><AllTouristSpots></AllTouristSpots></PrivetRoute>,
-          loader:()=> fetch('http://localhost:3000/spot')
+          element: <AllTouristSpots></AllTouristSpots>,
+          loader:()=> fetch('https://assaignment-10-server-sage.vercel.app/spot')
         },
         {
           path: "/myList",
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         {
           path: "/details/:id",
           element: <PrivetRoute><SpotDetails></SpotDetails></PrivetRoute>,
-          loader:({params})=>fetch(`http://localhost:3000/spot/${params.id}`)
+          loader:({params})=>fetch(`https://assaignment-10-server-sage.vercel.app/spot/${params.id}`)
         },
        
         {
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
         {
           path: "/countrySpot/:country",
           element: <PrivetRoute><CountrySpot></CountrySpot></PrivetRoute>,
-          loader:({params})=>fetch(`http://localhost:3000/country/${params.country}`)
+          loader:({params})=>fetch(`https://assaignment-10-server-sage.vercel.app/country/${params.country}`)
           
         },
        

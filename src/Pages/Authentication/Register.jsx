@@ -65,7 +65,7 @@ const Register = () => {
 
 
 
-                fetch('http://localhost:3000/user', {
+                fetch('https://assaignment-10-server-sage.vercel.app/user', {
 
                     method: 'POST',
                     headers: {
@@ -104,7 +104,7 @@ const Register = () => {
                 const photo=data.user?.photoURL
                 const FormDatas = {name,email,photo, }
 
-                fetch('http://localhost:3000/user', {
+                fetch('https://assaignment-10-server-sage.vercel.app/user', {
 
                 method: 'POST',
                 headers: {
@@ -138,7 +138,7 @@ const Register = () => {
             const photo=data.user?.photoURL
             const FormDatas = {name,email,photo, }
 
-            fetch('http://localhost:3000/user', {
+            fetch('https://assaignment-10-server-sage.vercel.app/user', {
 
             method: 'POST',
             headers: {

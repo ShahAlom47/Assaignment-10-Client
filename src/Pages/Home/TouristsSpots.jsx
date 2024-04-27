@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
+import { FaClock } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 
@@ -9,7 +10,7 @@ const TouristsSpots = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:3000/spot')
+        fetch('https://assaignment-10-server-sage.vercel.app/spot')
             .then(res => res.json())
             .then(data => setSpotDatas(data))
 
@@ -28,11 +29,13 @@ const TouristsSpots = () => {
             :<>
                <div className="p-4 lg:p-11 pb-5 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
                 {
-                    spotDatas?.slice(0, 6).map((data) => <div key={data._id} className="card card-compact bg-base-100 shadow-xl  grid grid-rows-6">
+                    spotDatas?.slice(0, 6).map((data) => <div key={data._id} className="card card-compact bg-base-100 shadow-xl  grid grid-rows-6 relative">
                         <div className="row-span-4 flex justify-center items-end">
                             <img className="w-full h-full rounded-t-xl text-center" src={data.imageURL} alt="Shoes" />
                         </div>
+                     
                         <div className="card-body row-span-2 mx-3">
+                        <p className="flex items-center bg-green-600 text-white absolute top-3 left-3  px-5 py-1 rounded-sm gap-2"><FaClock></FaClock>  {data.travel_time}</p>
                             <div className="">
                                 <h2 className="card-title text-gray-700">{data.spot_name}</h2>
                                 <p className="flex items-center gap-1 font-medium text-gray-600"><CiLocationOn />{data.country_name}</p>

@@ -9,7 +9,7 @@ const CountrySection = () => {
 
     const [countryData, setCountryData] = useState([])
     useEffect(() => {
-        fetch('http://localhost:3000/country')
+        fetch('https://assaignment-10-server-sage.vercel.app/country')
             .then(res => res.json())
             .then(data => setCountryData(data))
 

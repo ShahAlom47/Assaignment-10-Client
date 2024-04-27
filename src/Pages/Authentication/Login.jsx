@@ -76,7 +76,7 @@ const Login = () => {
                 const photo=data.user?.photoURL
                 const FormDatas = {name,email,photo, }
 
-                fetch('http://localhost:3000/user', {
+                fetch('https://assaignment-10-server-sage.vercel.app/user', {
 
               
                     method: "PATCH",
@@ -108,7 +108,7 @@ const Login = () => {
             const photo=data.user?.photoURL
             const FormDatas = {name,email,photo, }
 
-            fetch('http://localhost:3000/user', {
+            fetch('https://assaignment-10-server-sage.vercel.app/user', {
 
               
                     method: "PATCH",
