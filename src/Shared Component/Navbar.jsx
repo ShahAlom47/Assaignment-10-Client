@@ -147,6 +147,7 @@ const Navbar = () => {
                                     <p className="justify-center text-lg mb-4">
                                         {user?.email}
                                     </p>
+                                   <Link to={'/dashBoard'}><button className=" btn btn-sm my-3 rounded-sm mx-auto">Go To Dashboard</button></Link>
 
 
                                     <li  ><button onClick={logoutHandel} className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">LogOut</button></li>

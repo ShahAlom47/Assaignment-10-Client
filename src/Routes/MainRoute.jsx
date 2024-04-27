@@ -11,6 +11,8 @@ import AllTouristSpots from "../Pages/AllTouristSpots/AllTouristSpots";
 import MyList from "../Pages/MyList/MyList";
 import AddCountry from "../Pages/AddCountry.jsx/AddCountry";
 import CountrySpot from "../Pages/CountrySpot/CountrySpot";
+import DeshBoard from "../Pages/DashBoard/DashBoard";
+import DashBoard from "../Pages/DashBoard/DashBoard";
 
 const router = createBrowserRouter([
     {
@@ -60,6 +62,11 @@ const router = createBrowserRouter([
           path: "/countrySpot/:country",
           element: <PrivetRoute><CountrySpot></CountrySpot></PrivetRoute>,
           loader:({params})=>fetch(`https://assaignment-10-server-sage.vercel.app/country/${params.country}`)
+          
+        },
+        {
+          path: "/dashBoard",
+          element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
           
         },
        
