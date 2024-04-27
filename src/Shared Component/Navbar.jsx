@@ -9,7 +9,7 @@ import { AuthContext } from "../Auth Provider/AuthProbider";
 const Navbar = () => {
 
     const { user, userLogOut } = useContext(AuthContext)
-    const [theme,setTheme]=useState(false);
+    const [theme, setTheme] = useState(false);
 
     const [loadedUsers, setLoadedUsers] = useState([])
     useEffect(() => {
@@ -56,21 +56,16 @@ const Navbar = () => {
 
     }
 
-    const darkTheme=()=>{
-
-        document.querySelector('body').setAttribute('data-theme','dark')
+    const darkTheme = () => {
+        document.querySelector('body').setAttribute('data-theme', 'dark')
     }
-    const lightTheme=()=>{
-
-        document.querySelector('body').setAttribute('data-theme','light')
+    const lightTheme = () => {
+        document.querySelector('body').setAttribute('data-theme', 'light')
     }
 
-   const themeControl =()=>{
-setTheme(!theme)
+    const themeControl = () => {setTheme(!theme)}
 
-   }
-
-   theme?darkTheme():lightTheme()
+    theme ? darkTheme() : lightTheme()
 
 
     const navi = <>
@@ -79,6 +74,7 @@ setTheme(!theme)
         {
             user && <>
                 <NavLink to={'/addSpot'}><li><a>Add Tourists Spot</a></li></NavLink>
+                <NavLink to={'/addCountry'}><li><a>Add Countries</a></li></NavLink>
                 <NavLink to={'/myList'}><li><a>My List </a></li></NavLink>
                 <label onClick={themeControl} className="flex cursor-pointer gap-2 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></svg>

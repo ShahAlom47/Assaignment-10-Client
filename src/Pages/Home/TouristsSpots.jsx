@@ -19,7 +19,7 @@ const TouristsSpots = () => {
     return (
         <div className=" ">
             <div className="heading mb-2">
-                <p className="text-center text-green-700 text-xl" style={{ fontFamily: "Dancing Script, cursive" }}> Get Ready To </p>
+                <p className="text-center text-green-700 text-xl" style={{ fontFamily: "Dancing Script, cursive" }}> Perfect for You </p>
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >Explore Tourists Spots</h1>
             </div>
 
