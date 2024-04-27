@@ -24,7 +24,8 @@ const SpotDetails = () => {
                                 <h2 className="card-title text-gray-700 mb-3">{data.spot_name}</h2>
                                 <p className="mb-3 text-gray-500"> {data.description}</p>
 
-                                <p className="flex items-center gap-1 font-medium text-gray-600"><CiLocationOn />{data.country_name}</p>
+                                <p className="flex items-center gap-1 font-medium text-gray-600"><CiLocationOn />{data.location}</p>
+                                <p className="flex items-center gap-1 font-medium text-gray-600">Country: {data.country_name}</p>
 
                             </div>
                             <div className=" ">

@@ -13,6 +13,7 @@ const AddTouristSpot = () => {
     const handelAddSpot = (e) => {
 
         e.preventDefault();
+      const form=  e.target
         const data = new FormData(e.target);
         const user_name = data.get('name')
         const user_email = data.get('email')
@@ -56,7 +57,7 @@ const AddTouristSpot = () => {
             if (data.insertedId) {
 
                 toast.success(' Successfully Added Tourist Spot ')
-                data.reset()
+                form.reset()
               
                 // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
             }
