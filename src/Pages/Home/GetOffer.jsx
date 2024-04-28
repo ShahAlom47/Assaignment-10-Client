@@ -3,6 +3,11 @@ import { SlBadge } from "react-icons/sl";
 import { TbWorldShare } from "react-icons/tb";
 import { Typewriter } from "react-simple-typewriter";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+
 
 const GetOffer = () => {
     return (
@@ -35,17 +40,17 @@ const GetOffer = () => {
             </div>
           
             <div className=" lg:absolute -bottom-24 flex lg:flex-row flex-col gap-8 justify-center  w-full mb-10  ">
-                <div className=" bg-white rounded-lg flex flex-col  text-center shadow-lg p-6 px-8 hover:-translate-y-4 duration-700  ">
+                <div data-aos="flip-down" data-aos-duration="3000" className=" bg-white rounded-lg flex flex-col  text-center shadow-lg p-6 px-8 hover:-translate-y-4 duration-700  ">
                     <TbWorldShare className="m-auto text-3xl text-green-600" />
                     <h1 className="text-3xl font-bold">500</h1>
                     <p className="font-medium">Awesome Tour</p>
                 </div>
-                <div className=" bg-white rounded-lg flex flex-col  text-center shadow-lg p-6 px-8 hover:-translate-y-4 duration-700 ">
+                <div data-aos="flip-down" data-aos-duration="3000" className=" bg-white rounded-lg flex flex-col  text-center shadow-lg p-6 px-8 hover:-translate-y-4 duration-700 ">
                     <GrMapLocation  className="m-auto text-3xl text-green-600" />
                     <h1 className="text-3xl font-bold">300</h1>
                     <p className="font-medium">New Destinations</p>
                 </div>
-                <div className=" bg-white rounded-lg flex flex-col  text-center shadow-lg p-6 px-8 hover:-translate-y-4 duration-700 ">
+                <div data-aos="flip-down" data-aos-duration="3000" className=" bg-white rounded-lg flex flex-col  text-center shadow-lg p-6 px-8 hover:-translate-y-4 duration-700 ">
                     <SlBadge className="m-auto text-3xl text-green-600" />
                     <h1 className="text-3xl font-bold">15</h1>
                     <p className="font-medium">Year Experience</p>

@@ -26,7 +26,7 @@ const TopGuide = () => {
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6  w-11/12 m-auto my-10">
                 {
                     guideData.map(data => <div key={data._id}>
-                        <div className="card bg-base-100 shadow-xl">
+                        <div className="card bg-base-100 shadow-xl  hover:-translate-y-4 duration-700   ">
                             <figure className=" relative">
                                 <img src={data.imageURL} alt="Shoes" className="rounded-xl" />
                                

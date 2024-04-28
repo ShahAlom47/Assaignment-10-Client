@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { CiLocationOn } from "react-icons/ci";
 import { Link, useLoaderData } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 
 const AllTouristSpots = () => {
@@ -34,6 +38,16 @@ const AllTouristSpots = () => {
 
 
     }
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    function handleMouseOver(index) {
+        setHoveredIndex(index);
+    }
+
+    function handleMouseOut() {
+        setHoveredIndex(null);
+    }
+
 
     return (
         <div className=" p-8">
@@ -68,9 +82,23 @@ const AllTouristSpots = () => {
 
                             {
 
-                                spotDatas.map(data => <div key={data._id} className="card card-compact bg-base-100 shadow-xl   h-96">
-                                    <div className=" flex justify-center items-end h-2/4 ">
-                                        <img className="w-full h-full rounded-t-xl text-center" src={data.imageURL} alt="Shoes" />
+                                spotDatas.map((data, index) => <div key={data._id}
+                                    onMouseOver={() => handleMouseOver(index)}
+                                    onMouseOut={handleMouseOut}
+                                    className="card card-compact bg-base-100 shadow-xl   h-96 overflow-hidden"
+                                    
+                                    data-aos="flip-left"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="2000"
+                                    
+                                    >
+                                    <div className=" flex justify-center items-end h-2/4  ">
+                                        <img className="w-full h-full rounded-t-xl text-center"
+                                            style={{
+                                                transition: 'transform 0.9s ease',
+                                                transform: hoveredIndex === index ? 'scale(1.1)' : 'scale(1)',
+                                            }}
+                                            src={data.imageURL} alt="Shoes" />
                                     </div>
                                     <div className="card-body  mx-3">
                                         <div className="">
@@ -92,12 +120,12 @@ const AllTouristSpots = () => {
                             }
                         </div>
                         <div className=" flex justify-center my-4">
-                                {
+                            {
 
-                                    spotDatas.length > 6 && <Link to={'/allSpot'}> <button className=" m-auto btn btn-sm bg-green-600  rounded-sm px-4 hover:bg-green-70 text-white">
-                                        See All Spot</button></Link>
-                                }
-                            </div>
+                                spotDatas.length > 6 && <Link to={'/allSpot'}> <button className=" m-auto btn btn-sm bg-green-600  rounded-sm px-4 hover:bg-green-70 text-white">
+                                    See All Spot</button></Link>
+                            }
+                        </div>
                     </div>
 
             }

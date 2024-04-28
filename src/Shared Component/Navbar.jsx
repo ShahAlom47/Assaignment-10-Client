@@ -115,7 +115,7 @@ const Navbar = () => {
 
             <div className={`className=" max-w-7xl w-full m-auto" p-0  z-50 fixed  ${visible ? 'top-0 transition-all' : '-top-20 transition-all'} duration-1000`} >
 
-                <div className='navbar  bg-[#d8d2d260] text-gray-800 lg:px-10 md:px-10 '>
+                <div className='navbar  bg-[#d8d2d286] text-gray-800 lg:px-10 md:px-10 '>
 
 
 
@@ -131,7 +131,7 @@ const Navbar = () => {
                         <Link to={'/'}>  <button className="flex items-center pl-0 font-bold  text-xl md:text-2xl lg:text-2xl" >Trek<span className="text-green-500">T</span>rove</button> </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 font-semibold font-mont">
+                        <ul className="menu menu-horizontal px-1 font-semibold font-mont ">
                             {navi}
 
                         </ul>

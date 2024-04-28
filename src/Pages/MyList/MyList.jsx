@@ -5,8 +5,7 @@ import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 
-import Lottie from "lottie-react";
-import login  from"../../assets/SUovza6JCR.json";
+
 
 
 
