@@ -13,6 +13,7 @@ const Navbar = () => {
     const [theme, setTheme] = useState(false);
 
     const [loadedUsers, setLoadedUsers] = useState([])
+    console.log(loadedUsers);
     useEffect(() => {
 
         fetch('https://assaignment-10-server-sage.vercel.app/user')
