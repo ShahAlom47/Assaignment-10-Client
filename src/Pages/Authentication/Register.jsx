@@ -9,6 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../Auth Provider/AuthProbider";
 import { Helmet } from "react-helmet";
+import login from '../../assets/SUovza6JCR.json'
+import Lottie from "lottie-react";
 
 const Register = () => {
     const [errorMsg, setErrorMsg] = useState(null)
@@ -174,7 +176,11 @@ const Register = () => {
               <Helmet>
                 <title>Trek Trove | Register </title>
             </Helmet>
-            <div className=" w-8/12 m-auto py-10">
+            <div className=" w-10/12 m-auto py-10  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                <div className="my-auto">
+                <Lottie animationData={login} className="my-auto" />
+                </div>
+                <div className="">
                 <h1 className=" text-3xl font-bold text-center border-b-4 my-4 py-3">Register</h1>
                 <form onSubmit={handelRegister} className="space-y-3">
 
@@ -221,10 +227,10 @@ const Register = () => {
                 </div>
 
                 <div className=" md:w-8/12 lg:w-6/12 m-auto px-6 mb-10 flex flex-col gap-3 ">
-                    <button onClick={googleLoginHandel} className="btn btn-outline px-2 rounded-full"> <ImGoogle className=" text-red-500  w-6 h-6" /> Continue With Google </button>
-                    <button onClick={githubLoginHandel} className="btn btn-outline px-2 rounded-full"> <IoLogoGithub className="  w-8 h-8" /> Continue With Google </button>
+                    <button onClick={googleLoginHandel} className="btn btn-outline px-2 rounded-full"> <ImGoogle className=" text-red-500  w-6 h-6" /> Google </button>
+                    <button onClick={githubLoginHandel} className="btn btn-outline px-2 rounded-full"> <IoLogoGithub className="  w-8 h-8" />  Google </button>
                 </div>
-
+                </div>
             </div>
             <ToastContainer />
         </div>

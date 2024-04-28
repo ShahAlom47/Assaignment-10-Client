@@ -18,6 +18,7 @@ Check out the live demo of TrekTrove: [TrekTrove Live Demo](https://assaignment-
     - React Simple Typewriter: For animated typewriter effect.
     - Swiper Slider: For a responsive and touch-friendly slider.
     - React Tooltip: For displaying tooltips on hover.
+    - React Lottie: Used for Login and Register page.
 
 ## Technologies Used
 - HTML
