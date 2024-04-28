@@ -29,7 +29,8 @@ const AddTouristSpot = () => {
         const country_name = data.get('country_name')
         const imageURL = data.get('imageURL')
         const location = data.get('location')
-        const average_cost = data.get('average_cost')
+        const average_cos = data.get('average_cost')
+        const average_cost=parseInt(average_cos)
         const seasonality = data.get('seasonality')
         const travel_time = data.get('travel_time')
         const totalVisitors = data.get('totalVisitors')
@@ -49,6 +50,7 @@ const AddTouristSpot = () => {
             description,
         }
 
+        console.log(FormDatas);
 
 
         fetch('https://assaignment-10-server-sage.vercel.app/spot', {
