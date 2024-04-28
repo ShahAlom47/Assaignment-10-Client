@@ -25,9 +25,9 @@ const GetOffer = () => {
                     </h1>
                     <h1 className="text-4xl font-bold text-white">First <span className="text-green-600">TRIP!</span></h1>
                     <p className="text-gray-200 lg:w-6/12 md:w-10/12 mx-auto">Don’t Wanna Miss Somethings? Subscribe Right Now & Get The Special Discount & Monthly Newsletter.</p>
-                    <div className="bg-white rounded-md pl-3 my-4 justify-between">
-                    <input className="bg-white" type="text" placeholder="Type here"  />
-                    <button className="btn bg-green-700 text-white border-none rounded-md">Subscribe</button>
+                    <div className="bg-white rounded-md p-0 my-4 justify-between">
+                    <input className="bg-white border-none pl-3 outline-none " type="text" placeholder="Your Email...."  />
+                    <button className="btn btn-sm bg-green-700 text-white border-none rounded-none hover:text-gray-700 rounded-r-md">Subscribe</button>
                     </div>
                 </div>
                 <img className="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1615880480595-f5f9b4fb530e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Background Image" />

@@ -49,9 +49,9 @@ const TouristsSpots = () => {
                                     onMouseOut={handleMouseOut}
                                 >
                                     <div
-                                        className="row-span-4 flex justify-center items-end overflow-hidden" >
+                                        className="row-span-4 flex justify-center items-end overflow-hidden rounded-xl" >
 
-                                        <img className="w-full h-full rounded-t-xl text-center" src={data.imageURL} alt="Shoes"
+                                        <img className="w-full h-full rounded-t-xl text-center " src={data.imageURL} alt="Shoes"
                                             style={{
                                                 transition: 'transform 0.9s ease',
                                                 transform: hoveredIndex === index ? 'scale(1.1)' : 'scale(1)',
