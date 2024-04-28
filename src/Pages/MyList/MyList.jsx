@@ -3,6 +3,7 @@ import { AuthContext } from "../../Auth Provider/AuthProbider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 
 
@@ -156,6 +157,7 @@ const MyList = () => {
 
     return (
         <div>
+             <Helmet> <title>Trek Trove |My List  </title> </Helmet>
             <div className="heading my-16">
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >My List</h1>
             </div>

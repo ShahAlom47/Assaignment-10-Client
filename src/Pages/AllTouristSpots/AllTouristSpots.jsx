@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { CiLocationOn } from "react-icons/ci";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -41,7 +42,7 @@ const AllTouristSpots = () => {
             </div>
 
 
-
+            <Helmet> <title>Trek Trove |All Tourists Spots  </title> </Helmet>
 
 
 

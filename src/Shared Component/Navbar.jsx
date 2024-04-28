@@ -75,10 +75,10 @@ const Navbar = () => {
         {
             user && <>
                 <NavLink to={'/addSpot'}><li><a>Add Tourists Spot</a></li></NavLink>
-                {
+                {/* {
                    user.email==='sahalom4729@gmail.com'?<NavLink to={'/addCountry'}><li><a>Add Countries</a></li></NavLink>:''
-                }
-                
+                } */}
+
                 <NavLink to={'/myList'}><li><a>My List </a></li></NavLink>
                 <label onClick={themeControl} className="flex cursor-pointer gap-2 items-center ml-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></svg>
@@ -147,7 +147,7 @@ const Navbar = () => {
                                     <p className="justify-center text-lg mb-4">
                                         {user?.email}
                                     </p>
-                                   <Link to={'/dashBoard'}><button className=" btn btn-sm my-3 rounded-sm mx-auto">Go To Dashboard</button></Link>
+                                    <Link to={'/dashBoard'}><button className=" btn btn-sm my-3 rounded-sm mx-auto">Go To Dashboard</button></Link>
 
 
                                     <li  ><button onClick={logoutHandel} className="btn btn-sm rounded-sm ml-3 bg-[#3fb232] border-none ">LogOut</button></li>

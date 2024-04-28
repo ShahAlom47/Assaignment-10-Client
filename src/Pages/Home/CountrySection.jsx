@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
 
@@ -31,6 +32,7 @@ const CountrySection = () => {
     }
     return (
         <section className="my-20">
+             {/* <Helmet> <title>Trek Trove |Top Destination  </title> </Helmet> */}
             <div className="heading mb-2">
                 <p className="text-center text-green-700 text-xl" style={{ fontFamily: "Dancing Script, cursive" }}> Get Ready To </p>
                 <h1 className="text-3xl font-bold text-center border-b-4 py-3 font-mont">Explore Top Destination</h1>

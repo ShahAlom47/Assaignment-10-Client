@@ -8,6 +8,7 @@ import {  updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../Auth Provider/AuthProbider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
     const [errorMsg, setErrorMsg] = useState(null)
@@ -168,6 +169,9 @@ const Register = () => {
 
     return (
         <div className=" pt-20 ">
+              <Helmet>
+                <title>Trek Trove | Register </title>
+            </Helmet>
             <div className=" w-8/12 m-auto py-10">
                 <h1 className=" text-3xl font-bold text-center border-b-4 my-4 py-3">Register</h1>
                 <form onSubmit={handelRegister} className="space-y-3">

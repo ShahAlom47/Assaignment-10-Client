@@ -11,8 +11,9 @@ import AllTouristSpots from "../Pages/AllTouristSpots/AllTouristSpots";
 import MyList from "../Pages/MyList/MyList";
 import AddCountry from "../Pages/AddCountry.jsx/AddCountry";
 import CountrySpot from "../Pages/CountrySpot/CountrySpot";
-import DeshBoard from "../Pages/DashBoard/DashBoard";
+
 import DashBoard from "../Pages/DashBoard/DashBoard";
+import AddGuide from "../Pages/DashBoard/AddGuide";
 
 const router = createBrowserRouter([
     {
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
         {
           path: "/dashBoard",
           element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
+          
+        },
+        {
+          path: "/addGuide",
+          element: <PrivetRoute><AddGuide></AddGuide></PrivetRoute>,
           
         },
        

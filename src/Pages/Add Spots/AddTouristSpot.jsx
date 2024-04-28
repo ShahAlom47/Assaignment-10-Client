@@ -1,6 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../Auth Provider/AuthProbider";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 
 
 const AddTouristSpot = () => {
@@ -67,6 +68,7 @@ const AddTouristSpot = () => {
 
     return (
         <div className="py-16 w-8/12 m-auto">
+             <Helmet> <title>Trek Trove |Add Tourists Spots  </title> </Helmet>
             <div className="heading mb-5">
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >Add Tourists Spots</h1>
             </div>

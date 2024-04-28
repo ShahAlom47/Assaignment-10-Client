@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { CiLocationOn } from "react-icons/ci";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
@@ -8,6 +9,7 @@ const SpotDetails = () => {
 
     return (
         <div className="lg:w-8/12 md:w-8/12 w-10/12 m-auto">
+             <Helmet> <title>Trek Trove |Spot Details  </title> </Helmet>
             <div className="heading mb-5 my-16">
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >Spot Details</h1>
             </div>

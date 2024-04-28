@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { CiLocationOn } from "react-icons/ci";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 
@@ -8,6 +9,9 @@ const CountrySpot = () => {
     console.log(countryData);
     return (
         <div>
+              <Helmet>
+                <title>Trek Trove | Country Tourist Spot</title>
+            </Helmet>
             <div className="heading my-16">
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >Country Spots</h1>
             </div>
