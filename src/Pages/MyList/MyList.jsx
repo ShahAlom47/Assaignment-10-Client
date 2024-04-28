@@ -219,7 +219,7 @@ const MyList = () => {
                                 <input type="text" placeholder="TotalVisitorsPerYear" name="totalVisitors" className="input input-bordered w-full " defaultValue={acceptedData.totalVisitors}/>
                             </div>
 
-                            <textarea name="description" placeholder="Sort Description" id="" cols="30" rows="10" className="input input-bordered h-20 w-full" defaultValue={acceptedData.des}></textarea>
+                            <textarea name="description" placeholder="Sort Description" id="" cols="30" rows="10" className="input input-bordered h-20 w-full" defaultValue={acceptedData.description}></textarea>
                             <input type="submit" value="Save" className="btn btn-s rounded-sm  bg-[#3fb232] border-none w-full my-5 text-white text-lg" />
 
                         </form>

@@ -1,5 +1,5 @@
 
-import { IoHomeOutline } from "react-icons/io5";
+
 
 const Footer = () => {
   return (

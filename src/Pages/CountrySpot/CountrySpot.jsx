@@ -1,11 +1,13 @@
 import { Helmet } from "react-helmet";
 import { CiLocationOn } from "react-icons/ci";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa6";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 
 const CountrySpot = () => {
-    const { country } = useParams()
+    // const { country } = useParams()
     const countryData = useLoaderData();
+    const navigate = useNavigate()
     console.log(countryData);
     return (
         <div>
@@ -14,6 +16,8 @@ const CountrySpot = () => {
             </Helmet>
             <div className="heading my-16">
                 <h1 className=" text-3xl font-bold text-center border-b-4  py-3 font-mont" >Country Spots</h1>
+                <h1 className=" text-xl font-bold text-center   py-3 font-mont" >Total Spot: {countryData.length}</h1>
+               
             </div>
             {
                 countryData.length === 0 ? <div className=" flex justify-center p-48"> <span className="loading loading-spinner  w-40 h-40 "></span> </div>
@@ -29,6 +33,7 @@ const CountrySpot = () => {
                             <p className="font-medium text-gray-500">Seasonality : {data.seasonality}</p>
                             <p className=" text-gray-600 font-medium"> Average Cost <span className=" text-lg font-semibold "> {data.average_cost} $</span></p>
                             <div className="card-actions justify-end">
+                                <button onClick={()=>navigate(-1)} className="btn btn-sm px-3 rounded-sm"><FaArrowLeft /> Back </button>
                             <Link to={`/details/${data._id}`}> <button className="btn btn-sm  border-none  rounded-sm px-4 hover:bg-green-900 text-white bg-green-700">
                                     View Details </button></Link>
                             </div>

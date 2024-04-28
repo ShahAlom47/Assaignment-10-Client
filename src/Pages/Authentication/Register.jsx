@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaRegCircleUser } from "react-icons/fa6";
 import { ImGoogle } from "react-icons/im";
 import { IoLogoGithub } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.config";
 import {  updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
@@ -16,6 +16,8 @@ const Register = () => {
     const [passError, setPassError] = useState(null)
     const [showPass, setShowPass] = useState(true)
     const navigate = useNavigate();
+    const location= useLocation()
+    
 
     const { userRegister, githubLogin, googleLogin } = useContext(AuthContext)
 
@@ -81,7 +83,7 @@ const Register = () => {
 
                             toast.success('User created successfully ')
                             setSuccessMsg('User created successfully')
-                            // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+                            setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
                         }
                     })
 
@@ -120,7 +122,7 @@ const Register = () => {
 
                         toast.success('Login Successfully ')
                         setSuccessMsg('Login Successfully')
-                        // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+                        setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
                     }
                 })
  
@@ -154,7 +156,7 @@ const Register = () => {
 
                     toast.success('Login Successfully ')
                     setSuccessMsg('Login Successfully')
-                    // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
+                    setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
                 }
             })
 
