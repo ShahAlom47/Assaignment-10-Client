@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet";
 import AddCountry from "../AddCountry.jsx/AddCountry";
 import AddGuide from "./AddGuide";
+import AddAboutUs from "./AddAboutUs";
 
 
 
@@ -10,15 +11,24 @@ import AddGuide from "./AddGuide";
 const DashBoard = () => {
     const [countryForm,setCountryForm] = useState(false)
     const [guideForm,setGuideForm] = useState(false)
+    const [AboutForm,setAboutForm] = useState(false)
 
     const handelCountryForm=()=>{
-        setCountryForm(!countryForm)
+        setCountryForm(true)
         setGuideForm(false)
+        setAboutForm(false)
 
     }
     const handelGuideForm= ()=>{
         setCountryForm(false)
-        setGuideForm(!guideForm)
+        setGuideForm(true)
+        setAboutForm(false)
+
+    }
+    const handelAboutForm= ()=>{
+        setCountryForm(false)
+        setGuideForm(false)
+        setAboutForm(true)
 
 
     }
@@ -35,6 +45,7 @@ const DashBoard = () => {
                 <div className="lg:w-4/12 md:w-4/12 flex gap-3 lg:flex-col md:flex-col border-r-4 p-8">
                     <button onClick={()=>handelCountryForm()} className=" btn bg-green-600 rounded-none rounded-r-full text-white "> + Add Country</button>
                     <button onClick={handelGuideForm} className=" btn bg-green-600 rounded-none rounded-r-full text-white "> + Add Guide</button>
+                    <button onClick={handelAboutForm} className=" btn bg-green-600 rounded-none rounded-r-full text-white "> + Add Client</button>
 
                 </div>
                 <div className="flex-1">
@@ -44,6 +55,9 @@ const DashBoard = () => {
                     }
                     {
                         guideForm&& <><AddGuide></AddGuide></>
+                    }
+                    {
+                        AboutForm&& <><AddAboutUs></AddAboutUs></>
                     }
 
                   

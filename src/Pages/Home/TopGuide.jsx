@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import 'animate.css';
+
+
+
 
 
 const TopGuide = () => {
@@ -30,13 +34,14 @@ const TopGuide = () => {
                             <figure className=" relative">
                                 <img src={data.imageURL} alt="Shoes" className="rounded-xl" />
                                
-                                <div className="dropdown dropdown-top  absolute bottom-3 left-3 bg-slate-500 rounded-full">
-                                    <button tabIndex={0} className=" btn btn-sm border-none bg-green-600 rounded-full px-5 py-1 font-medium text-white hover:text-gray-700">
+                                <div className="dropdown dropdown-top  dropdown-hover absolute bottom-3 left-3 bg-slate-500 rounded-full">
+                                    <button tabIndex={0} className=" btn btn-sm border-none bg-green-600 rounded-full px-5 py-1 font-medium text-white hover:bg-gray-300 hover:text-gray-700">
                                     Contact</button>
-                                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-gray-300  rounded-lg">
-                                        <li className="font-medium">Mobile: {data.guide_mobile}</li>
+                                    <ul tabIndex={0}  className=" animate__animated animate__zoomInUp  dropdown-content z-[3] menu p-2 shadow bg-gray-300  rounded-lg w-52 relative mb-5">
+                                        
+                                        <li className="font-medium"> Mobile: {data.guide_mobile}</li>
                                         <li className="font-medium">Email: {data.guide_email}</li>
-                                       
+                                        <div className=" relative -bottom-4 left-1/4 transform rotate-45 z-1 w-4 h-4 bg-gray-300"></div>
                                     </ul>
                                 </div>
                             </figure>

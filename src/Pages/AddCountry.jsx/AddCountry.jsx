@@ -7,6 +7,7 @@ const AddCountry = () => {
     const handelAddCountry = (e) => {
 
         e.preventDefault();
+        const form = e.target
         const data = new FormData(e.target);
 
         const country_name = data.get('country_name')
@@ -37,7 +38,7 @@ const AddCountry = () => {
                 if (data.insertedId) {
 
                     toast.success(' Successfully Added Country ')
-                    // data.reset()
+                    form.reset()
 
                     // setTimeout(() => { navigate(location.state ? location.state : '/') }, 1500)
                 }

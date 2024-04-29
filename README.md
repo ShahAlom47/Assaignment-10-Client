@@ -19,6 +19,7 @@ Check out the live demo of TrekTrove: [TrekTrove Live Demo](https://assaignment-
     - Swiper Slider: For a responsive and touch-friendly slider.
     - React Tooltip: For displaying tooltips on hover.
     - React Lottie: Used for Login and Register page.
+    - Animate.CSS : For Guide Contact Smooth Popup .
 
 ## Technologies Used
 - HTML

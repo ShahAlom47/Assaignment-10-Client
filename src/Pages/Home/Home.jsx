@@ -4,6 +4,7 @@ import CountrySection from "./CountrySection";
 import GetOffer from "./GetOffer";
 import TouristsSpots from "./TouristsSpots";
 import TopGuide from "./TopGuide";
+import AboutAU from "./AboutAU";
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             <CountrySection></CountrySection>
             <GetOffer></GetOffer>
             <TopGuide></TopGuide>
+            <AboutAU></AboutAU>
           
         </div>
     );
